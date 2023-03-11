@@ -1,0 +1,10 @@
+Készíts egy új mappát , amibe helyezz el tetszőleges HTML, JS, CSS, kep fajlokat.
+- a mappát helyezd el a repoba
+- a repo tartalmat töltsd fel a repoba
+- ellenőrizd a repo tartalmát
+- heylezz el +2 fájlt a mappába
+- megint töltsd fel őket a repoba
+- ellenőrizd a repo statuszát
+ - állj vissza az előző verziora
+ - ellenőrizd a repo statuszát
+ 
