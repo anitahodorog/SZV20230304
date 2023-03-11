@@ -1,0 +1,231 @@
+<!--
+    Készíts Bootstrap-es űrlapot az alábbi mezőkkel:
+    - Vezeteknev
+    - Keresztnev
+    - Születési dátum
+    - Email
+    - Nem (radio)
+    + az űrlap végére helyezz el egy gombot (ne töltse újra az oldalt)
+    - Készíts Bootstrap táblázatot a teszteredmények megjelenítésére
+
+
+    Készítsd el az alábbi teszteket tetszőleges táblábahelyezési 
+    megoldással:
+     - 3 db radiobutton van-e
+     - email type email-e
+     - 2db szöveges input van-e 
+     - az inputok mindegyike rendelkezik-e a form-control classal
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+         <div class="row">
+    <form class="my-3">
+        <div class="my-3">
+          <label for="vnev" class="form-label">Vezetéknév:</label>
+          <input type="text" class="form-control" id="vnev">
+        </div>
+        <div class="my-3">
+            <label for="knev" class="form-label">Keresztnév:</label>
+            <input type="text" class="form-control" id="knev">
+          </div>
+          <div class="my-3">
+            <label for="szulDate" class="form-label">Születési dátum:</label>
+            <input type="date" class="form-control" id="szulDate">
+          </div>
+          <div class="my-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio1">Férfi</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2">Nő</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3">Egyéb</label>
+          </div>
+          <br>
+          <br>
+          <button type="button" class="btn btn-success w-100">Felvitel</button>
+      </form>
+
+      <hr>
+
+      <h1 class="text-center my-2">Tesztek</h1>
+
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Teszt</th>
+                            <th>Eredmény</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="torzs">
+
+
+                    </tbody>
+
+                </table>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+        function feladat1(){
+            var feladat1Nev = "3 radiobutton"; 
+
+            try{
+                var inputok = document.querySelectorAll("input");
+
+                var db = 0;
+
+                for(var i = 0; i < inputok.length; i++){
+                    if(inputok[i].type == "radio"){
+                        db++;
+                    }
+                }
+
+                if(db ==3){
+                    return[feladat1Nev, "Sikeres"];
+                }
+                else{
+                    return[feladat1Nev, "Sikertelen"]
+                }
+            }
+            catch{
+                return[feladat1Nev, "HIBA!!"];
+            }
+        }
+
+
+        function feladat2(){
+            var feladat2Nev = "email type";
+
+            
+
+            try{
+                var inputok = document.querySelectorAll("input");
+
+                var email =  0;
+
+                while(email < inputok.length && !(inputok[email].type == "email")){
+                    email++;
+                }
+                if(email < inputok.length){
+                    return[feladat2Nev, "Sikeres"];
+                }
+                else{
+                    return[feladat2Nev, "Sikertelen"];
+                }
+            }
+            catch{
+                return[feladat2Nev, "HIBA!!"];
+            }
+            
+        }
+
+        function feladat3(){
+            var feladat3Nev = "email type";
+
+            try{
+                var inputok = document.querySelectorAll("input");
+
+                var db = 0;
+
+                for(var i = 0; i < inputok.length; i++){
+                    if(inputok[i].type == "text"){
+                        db++;
+                    }
+                }
+
+                if(db ==2){
+                    return[feladat3Nev, "Sikeres"];
+                }
+                else{
+                    return[feladat3Nev, "Sikertelen"]
+                }
+            }
+            catch{
+                return[feladat3Nev, "HIBA!!"];
+            }
+        }
+
+        function feladat4(){
+            var feladat4Nev = "form-controll classok";
+
+            try{
+                var inputok = document.querySelectorAll("input");
+
+                var db = 0;
+
+                for(var i = 0; i < inputok.length; i++){
+                    if(inputok[i].classList.contains("form-control"))
+                    db++
+                }
+
+                if(db == inputok.length){
+                    return[feladat4Nev, "Sikeres"];
+                }
+                else{
+                    return[feladat4Nev, "Sikertelen"]
+                }
+            }
+            catch{
+                return[feladat4Nev, "HIBA!!"];
+            }
+        }
+
+
+
+        //tábla sor készítő
+
+        function TrKeszito(eredmenyek){
+            var tr = document.createElement("tr");
+
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+
+            td1.appendChild(document.createTextNode(eredmenyek[0]));
+            td2.appendChild(document.createTextNode(eredmenyek[1]));
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+
+            return tr;
+        }
+
+//Tesztek meghívása
+
+        function TesztHivasok(){
+            var torzs = document.getElementById("torzs");
+
+            torzs.appendChild(TrKeszito(feladat1()));
+            torzs.appendChild(TrKeszito(feladat2()));
+            torzs.appendChild(TrKeszito(feladat3()));
+            torzs.appendChild(TrKeszito(feladat4()));
+            
+        }
+
+        TesztHivasok();
+
+
+    </script>
+
+</body>
+
+</html>
